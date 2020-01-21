@@ -1,20 +1,5 @@
-"""
-We have an existing dictionary that maps US states to their capitals.
-1. Print the state capital of Idaho
-2. Print all states.
-3. Print all capitals.
-4. Create a single string 'Alabama -> Montgomery, Alaska -> Juneau, ...'
-5. Ensure the string you created in 4. is alphabetically sorted by state
-7. Now we want to add the reverse look up, given the name of a capital what state
-is it in?
-Implement the function def get_state(capital): below so it returns the state.
-GOTCHAS: What happens if two states have the same capital name, how do you
-handle that?
+#!/usr/bin/env python3.8.0
 
-"""
-
-import sys
-import pytest
 
 STATES_CAPITALS = {
     'Alabama' : 'Montgomery',
@@ -83,37 +68,11 @@ def all_capitals():
 
 def states_capitals_string():
     str = ''
-    for key in STATES_CAPITALS.key():
-        str += (key + ' , ' )
+    for key in STATES_CAPITALS.keys():
+        str += (key + ' -> ')
     print(str)
 
-def get_state(capital):
-    str = ''
-    for key, value in STATES_CAPITALS.items():
-        if value == capital:
-            return key
-
-
-
-def test_state_to_capital():
-    assert 'Cheyenne' == STATES_CAPITALS['Wyoming']
-
-def test_state_to_capital_unknown():
-    with pytest.raises(KeyError):
-        STATES_CAPITALS['']
-
-def test_capital_to_state():
-    assert 'Wyoming' == get_state('Cheyenne')
-
-def test_capital_to_state_unknown():
-    with pytest.raises(KeyError):
-        raise KeyError
-
-
-def main():
-    return pytest.main(__file__)
-
-
-if __name__ == '__main__':
-    sys.exit(main())
-
+capital_of_Idaho()
+all_states()
+all_capitals()
+states_capitals_string()
