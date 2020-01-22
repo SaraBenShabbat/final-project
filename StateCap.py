@@ -83,17 +83,23 @@ def all_capitals():
 
 def states_capitals_string():
     str = ''
-    for key in STATES_CAPITALS.key():
-        str += (key + ' , ' )
+    for key,value in STATES_CAPITALS.items():
+        str += (key + ' -> ' +  value + ' , ')
     print(str)
 
 def get_state(capital):
-    str = ''
     for key, value in STATES_CAPITALS.items():
         if value == capital:
             return key
 
 
+# Here, I test my code.
+# capital_of_Idaho()
+# all_states()
+# all_capitals()
+# states_capitals_string()
+# state = get_state('Madison')
+# print(state)
 
 def test_state_to_capital():
     assert 'Cheyenne' == STATES_CAPITALS['Wyoming']
@@ -110,10 +116,12 @@ def test_capital_to_state_unknown():
         raise KeyError
 
 
+
+"""
 def main():
     return pytest.main(__file__)
 
 
 if __name__ == '__main__':
     sys.exit(main())
-
+"""
