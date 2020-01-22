@@ -71,29 +71,43 @@ STATES_CAPITALS = {
 
 
 def capital_of_Idaho():
-    print(STATES_CAPITALS['Idaho'])
+    print('Capital of Idaho = ' + STATES_CAPITALS['Idaho'])
 
 def all_states():
+    print('All States:')
     for key in STATES_CAPITALS.keys():
         print(key)
 
 def all_capitals():
+    print('All Capitals:')
     for value in STATES_CAPITALS.values():
         print(value)
 
 def states_capitals_string():
+    print('States and Capitals in a string:')
     str = ''
-    for key in STATES_CAPITALS.key():
-        str += (key + ' , ' )
-    print(str)
+    for key,value in STATES_CAPITALS.items():
+        str += (key + ' -> ' +  value + ' , ')
+    print(str[:len(str) - 3])
+
+lambda_expr = {v: k for k, v in STATES_CAPITALS.items()}
 
 def get_state(capital):
-    str = ''
-    for key, value in STATES_CAPITALS.items():
-        if value == capital:
-            return key
+    return lambda_expr[capital]
 
 
+
+
+# Here, I test my code.
+capital_of_Idaho()
+print('\n\n\n')
+all_states()
+print('\n\n\n')
+all_capitals()
+print('\n\n\n')
+states_capitals_string()
+print('\n\n\n')
+print('The state of Madison Capital city = ' + get_state('Madison'))
 
 def test_state_to_capital():
     assert 'Cheyenne' == STATES_CAPITALS['Wyoming']
@@ -110,10 +124,12 @@ def test_capital_to_state_unknown():
         raise KeyError
 
 
+
+"""
 def main():
     return pytest.main(__file__)
 
 
 if __name__ == '__main__':
     sys.exit(main())
-
+"""
