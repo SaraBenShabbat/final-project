@@ -71,35 +71,44 @@ STATES_CAPITALS = {
 
 
 def capital_of_Idaho():
-    print(STATES_CAPITALS['Idaho'])
+    print('Capital of Idaho = ' + STATES_CAPITALS['Idaho'])
 
 def all_states():
+    print('All States:')
     for key in STATES_CAPITALS.keys():
         print(key)
 
 def all_capitals():
+    print('All Capitals:')
     for value in STATES_CAPITALS.values():
         print(value)
 
 def states_capitals_string():
+    print('States and Capitals in a string:')
     str = ''
     for key,value in STATES_CAPITALS.items():
         str += (key + ' -> ' +  value + ' , ')
     print(str)
 
 def get_state(capital):
+    state_lst = []
     for key, value in STATES_CAPITALS.items():
         if value == capital:
-            return key
+            state_lst.append(key)
+    return state_lst
 
 
 # Here, I test my code.
-# capital_of_Idaho()
-# all_states()
-# all_capitals()
-# states_capitals_string()
-# state = get_state('Madison')
-# print(state)
+capital_of_Idaho()
+print('\n\n\n')
+all_states()
+print('\n\n\n')
+all_capitals()
+print('\n\n\n')
+states_capitals_string()
+print('\n\n\n')
+state =''.join( get_state('Madison'))
+print('The state of Madison Capital city = ' + state)
 
 def test_state_to_capital():
     assert 'Cheyenne' == STATES_CAPITALS['Wyoming']
