@@ -12,19 +12,9 @@ Example: ['mont', 'y py', 'thon', 's fl', 'ying', ' cir', 'cus']
 import pytest
 import string
 def no_duplicates(a_string):
-    str_with_no_duplicates = ''
-
-    if ' ' in a_string:
-        str_with_no_duplicates += ' '
-
-    for char in list(string.ascii_lowercase):
-        if char in a_string:
-            str_with_no_duplicates += char
-
-    return str_with_no_duplicates
+    return ''.join(sorted(set(a_string)))
 
 print('---The string with no duplicates:\n' + no_duplicates('monty pythons flying circus'))
-
 
 def reversed_words(a_string):
     return list(reversed(a_string.split(' ')))
