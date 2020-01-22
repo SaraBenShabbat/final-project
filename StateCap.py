@@ -88,14 +88,14 @@ def states_capitals_string():
     str = ''
     for key,value in STATES_CAPITALS.items():
         str += (key + ' -> ' +  value + ' , ')
-    print(str)
+    print(str[:len(str) - 3])
+
+lambda_expr = {v: k for k, v in STATES_CAPITALS.items()}
 
 def get_state(capital):
-    state_lst = []
-    for key, value in STATES_CAPITALS.items():
-        if value == capital:
-            state_lst.append(key)
-    return state_lst
+    return lambda_expr[capital]
+
+
 
 
 # Here, I test my code.
@@ -107,8 +107,7 @@ all_capitals()
 print('\n\n\n')
 states_capitals_string()
 print('\n\n\n')
-state =''.join( get_state('Madison'))
-print('The state of Madison Capital city = ' + state)
+print('The state of Madison Capital city = ' + get_state('Madison'))
 
 def test_state_to_capital():
     assert 'Cheyenne' == STATES_CAPITALS['Wyoming']
